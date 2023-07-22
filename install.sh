@@ -24,5 +24,5 @@ else
 fi
 
 curl -L "https://github.com/leepjwallace/bloggo/releases/download/latest/bloggo_${OS}_${ARCH}" -o bloggo
-chmod +x bloggo
+chmod 777 bloggo
 sudo mv bloggo /usr/local/bin
