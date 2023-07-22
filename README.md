@@ -1,8 +1,11 @@
-![Bloggo Logo](https://path-to-your-logo/logo.png)
+<p align="center">
+  <img src="https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_LightBlue.png" alt="Bloggo Logo" width="600"/>
+</p>
+
 
 # Bloggo
 
-[![GitHub release](https://img.shields.io/github/release/yourusername/bloggo.svg)](https://github.com/yourusername/bloggo/releases)
+[![GitHub release](https://img.shields.io/github/release/yourusername/bloggo.svg)](https://github.com/leepjwallace/bloggo/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Bloggo is a lightweight command-line tool for creating and managing your notes. It's written in Go and uses Vim as the text editor. 
