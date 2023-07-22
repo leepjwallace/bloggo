@@ -23,6 +23,16 @@ else
     exit 1
 fi
 
-curl -sSL "https://github.com/leepjwallace/bloggo/releases/download/latest/bloggo_" + ${OS} + "_" + ${ARCH} -o bloggo
+
+base_url="https://github.com/"
+username="leepjwallace"
+repo="/bloggo/releases/download/"
+tag="latest"
+file="/bloggo_${OS}_${ARCH}"
+
+url=$base_url$username$repo$tag$file
+
+curl -L $url -o bloggo
+
 chmod 777 bloggo
 sudo mv bloggo /usr/local/bin
