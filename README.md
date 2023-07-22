@@ -15,7 +15,7 @@ Bloggo is a lightweight command-line tool for creating and managing your notes. 
 To install Bloggo, simply run the following command:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/yourusername/bloggo/main/install.sh | sh
+curl -sSL https://raw.githubusercontent.com/leepjwallace/bloggo/main/install.sh | sh
 ```
 
 This will download the latest binary, make it executable, and move it to /usr/local/bin.
