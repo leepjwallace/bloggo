@@ -23,16 +23,6 @@ else
     exit 1
 fi
 
-
-base_url="https://github.com/"
-username="leepjwallace"
-repo="/bloggo/releases/download/"
-tag="latest"
-file="/bloggo_${OS}_${ARCH}"
-
-url=$base_url$username$repo$tag$file
-
-curl -L $url -o bloggo
-
+curl -L "https://github.com/leepjwallace/bloggo/releases/latest/download/bloggo_${OS}_${ARCH}" -o bloggo
 chmod 777 bloggo
 sudo mv bloggo /usr/local/bin
