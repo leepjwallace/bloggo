@@ -23,7 +23,6 @@ else
     exit 1
 fi
 
-curl -L "https://github.com/leepjwallace/bloggo/releases/download/latest/bloggo_${OS}_${ARCH}" -o bloggo
-echo "https://github.com/leepjwallace/bloggo/releases/download/latest/bloggo_${OS}_${ARCH}"
+curl -sSL "https://github.com/leepjwallace/bloggo/releases/download/latest/bloggo_" + ${OS} + "_" + ${ARCH} -o bloggo
 chmod 777 bloggo
 sudo mv bloggo /usr/local/bin
