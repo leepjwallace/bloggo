@@ -19,7 +19,7 @@ else
 fi
 
 # Form the download URL
-URL="https://your-server.com/path/to/bloggo_${OS}_${ARCH}"
+URL="https://github.com/leepjwallace/bloggo/releases/latest/bloggo_${OS,,}_${ARCH}"
 
 # Download the binary
 curl -Lo bloggo ${URL}
