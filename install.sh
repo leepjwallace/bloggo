@@ -1,31 +1,28 @@
 #!/bin/bash
 
-# Detect the OS (works for Linux and macOS)
-OS=$(uname -s)
+ARCH="$(uname -m)"
+OS="$(uname | awk '{print tolower($0)}')"
 
-# Detect the architecture
-ARCH=$(uname -m)
-
-# Map the architecture string reported to a value used in your binary's name
-if [ "${ARCH}" == "x86_64" ]; then
+if [ "$ARCH" = "x86_64" ]; then
     ARCH="amd64"
-elif [ "${ARCH}" == "i386" ]; then
-    ARCH="386"
-elif [ "${ARCH}" == "arm" ]; then
-    ARCH="arm"  # or "arm64" if you're targeting that
+elif [ "$ARCH" = "aarch64" ]; then
+    ARCH="arm64"
+elif [ "$ARCH" = "armv7l" ]; then
+    ARCH="arm"
 else
-    echo "Unsupported architecture: ${ARCH}"
+    echo "Unsupported architecture: $ARCH"
     exit 1
 fi
 
-# Form the download URL
-URL="https://github.com/leepjwallace/bloggo/releases/latest/bloggo_${OS,,}_${ARCH}"
+if [ "$OS" = "darwin" ]; then
+    OS="mac"
+elif [ "$OS" = "linux" ]; then
+    OS="linux"
+else
+    echo "Unsupported OS: $OS"
+    exit 1
+fi
 
-# Download the binary
-curl -Lo bloggo ${URL}
-
-# Make it executable
+curl -L "https://github.com/leepjwallace/bloggo/releases/download/latest/bloggo_${OS}_${ARCH}" -o bloggo
 chmod +x bloggo
-
-# Move the binary to a location in the PATH
 sudo mv bloggo /usr/local/bin
