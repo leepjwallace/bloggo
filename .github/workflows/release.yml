@@ -17,11 +17,17 @@ jobs:
         with:
           go-version: 1.17
 
-      - name: Build bloggo (Linux)
+      - name: Build bloggo (Linux AMD64)
         run: GOOS=linux GOARCH=amd64 go build -o bloggo_linux_amd64
 
-      - name: Build bloggo (Mac)
+      - name: Build bloggo (Mac AMD64)
         run: GOOS=darwin GOARCH=amd64 go build -o bloggo_darwin_amd64
+
+      - name: Build bloggo (Linux ARM64)
+        run: GOOS=darwin GOARCH=arm64 go build -o bloggo_linux_arm64
+
+      - name: Build bloggo (Mac ARM64)
+        run: GOOS=darwin GOARCH=arm64 go build -o bloggo_darwin_arm64
 
       - name: Create Release
         id: create_release
@@ -34,7 +40,7 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Upload Release Asset (Linux)
+      - name: Upload Release Asset (Linux AMD64)
         id: upload-release-asset-linux
         uses: actions/upload-release-asset@v1
         env:
@@ -45,7 +51,7 @@ jobs:
           asset_name: bloggo_linux_amd64
           asset_content_type: application/octet-stream
 
-      - name: Upload Release Asset (Mac)
+      - name: Upload Release Asset (Mac AMD64)
         id: upload-release-asset-mac
         uses: actions/upload-release-asset@v1
         env:
@@ -54,4 +60,26 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./bloggo_darwin_amd64
           asset_name: bloggo_darwin_amd64
+          asset_content_type: application/octet-stream
+
+      - name: Upload Release Asset (Linux ARM64)
+        id: upload-release-asset-linux-arm
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./bloggo_linux_arm64
+          asset_name: bloggo_linux_arm64
+          asset_content_type: application/octet-stream
+
+      - name: Upload Release Asset (Mac ARM64)
+        id: upload-release-asset-mac-arm
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./bloggo_darwin_arm64
+          asset_name: bloggo_darwin_arm64
           asset_content_type: application/octet-stream
