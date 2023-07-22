@@ -23,6 +23,7 @@ else
     exit 1
 fi
 
-sudo curl -L "https://github.com/leepjwallace/bloggo/releases/download/latest/bloggo_${OS}_${ARCH}" -o bloggo
-sudo chmod 777 bloggo
+curl -L "https://github.com/leepjwallace/bloggo/releases/download/latest/bloggo_${OS}_${ARCH}" -o bloggo
+echo "https://github.com/leepjwallace/bloggo/releases/download/latest/bloggo_${OS}_${ARCH}"
+chmod 777 bloggo
 sudo mv bloggo /usr/local/bin
