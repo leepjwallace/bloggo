@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_LightBlue.png" alt="Bloggo Logo" width="600"/>
+  <img src="https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_LightBlue.png" alt="Bloggo Logo" width="200"/>
 </p>
 
 
