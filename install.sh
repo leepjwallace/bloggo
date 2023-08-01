@@ -15,7 +15,7 @@ else
 fi
 
 if [ "$OS" = "darwin" ]; then
-    OS="mac"
+    OS="darwin"
 elif [ "$OS" = "linux" ]; then
     OS="linux"
 else
